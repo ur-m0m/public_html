@@ -1,11 +1,3 @@
-
-<?php
-
-$add=$_SERVER['REMOTE_ADDR'];
-if (substr($add, 4,1)==".") $hno=substr($add, 3,1);
- else $hno=substr($add,3,2);
-?> 
-
 <!DOCTYPE HTML>
 
 <html lang="en-us" >
@@ -16,10 +8,11 @@ if (substr($add, 4,1)==".") $hno=substr($add, 3,1);
 <script type="text/javascript"src="javas.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body onload="hiWheel();">
+<body <?php if (!(isset($_COOKIE["visited"]))) echo "onload='hiWheel();'"; else echo "onload='noHia();'";?> >
 <div id="topsec" style="height:100vh; width:100vw;overflow:hidden;">
 <h1> Home</h1>
 <div>
@@ -43,19 +36,33 @@ if (substr($add, 4,1)==".") $hno=substr($add, 3,1);
 </a></svg>
 </div>
 </div>
+<script type="text/javascript">
+    var value_or_null = (document.cookie.match(/^(?:.*;)?visited=([^;]+)(?:.*)?$/)||[,null])[1];
+    if (value_or_null==null) {document.cookie='visited=2; expires=date()+600';}
+    else { value_or_null=parseInt(value_or_null)+1;
+        document.cookie='visited='+value_or_null+'; expires=date()+600';
+    }
+</script>
+<?php
+$add=$_SERVER['REMOTE_ADDR'];
+if (substr($add,0,2)=="10"){if (substr($add, 4,1)==".") $hno=substr($add, 3,1);
+else $hno=substr($add,3,2);
+}
+if (!(isset($_COOKIE["visited"]))) {setcookie("visited", 2, time()+600);
+	$i=intval(2);
+	$_COOKIE["visited"]=intval($i);
+}
+else {$i=intval($_COOKIE["visited"]);
+	setcookie("visited", intval($i+1), time()+600);
+}
+?>
 
-<!--<div id="menu">\
-		<a id="l"class="link" href="index.php"><div id="menuitem"> Home</div></a>
-		<a class="link"href="aboutme.html"><div id="menuitem"> About Me</div></a>
-		<a class="link" href="gallery.html"><div id="menuitem"> Gallery</div></a>
-		<a class="link"href="contact.html"><div id="menuitem">Contact Me</div></a>
-</div>
--->
 <div id="section" style="height:100vh;visibility: hidden;">
 <p id="des">There is nothing better than sitting in a hostel <?php if ($hno<17 && $hno>=1)echo $hno?> room and sip hot coffee on a rainy day, isn't it? 
 The comforting warmth of the beverage as it trickles down your throat is something words can't comprehend.
 By this time, you must have realised the superfluous nature the out-of-the-blue talk about some cup of water and beans. Well, that's how I am.
-What more do you want to know about me? <br><i class="material-icons md-18">sentiment_very_satisfied</i></p>
+What more do you want to know about me? <br><?php if($_COOKIE["visited"]>2)echo "<br> PS: I see that you have visited this page more than twice recently. ".$_COOKIE["visited"]." times to be exact. Damn! you really must be jobless..";?>
+<br><i class="material-icons md-18">sentiment_very_satisfied</i></p>
 </div>
 </body>
 </html>

@@ -11,12 +11,14 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="animate.css">
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script src="https://use.fontawesome.com/9bbc97bb88.js"></script>
 </head>
 
 <body onload="scrolls();">
 
 <div id="topsec" style="height:100vh;width:100vw;">
-<h1>Contact Me</h1>
+<h1 id="head">Contact Me</h1>
 <svg  width=49.75%><a class="menu" xlink:href="index.php">
 	<circle id="c" onmouseover="clinkain();" onmouseout="clinkaout();"cx=100% cy=100% r=40% fill=#fff stroke-width=3 />
 	<text id="texta" fill=#fff x=55% y=55% font-family="Verdana"font-size=160%></text>
@@ -37,7 +39,7 @@
 <br>
 </div>
 
-<div id="section" style="height:100%;">
+<div id="section" style="height:auto;">
 	<p id="des" style="top:5vh;color:#343434; height:10vh;">Here's how you can contact me..</p>
 	<a href="https://mail.google.com" id="contacts" target="_blank" title="Click for Gmail"><div onmouseover="shakea();" onmouseout="stopShakea();" id="contactsa"style="width:30vw;"><span id="ia"><i class="fa fa-google" aria-hidden="true" style="font-size:10vh"></i></span><div id="context"> Send me a mail at <b>siddamsritej@gmail.com</b> </div></div></a>
 	
@@ -45,8 +47,8 @@
 	
 	<a href="https://web.whatsapp.com" id="contacts" target="_blank" title="Click for WhatsApp"><div onmouseover="shakec();" onmouseout="stopShakec();" id="contactsc"style="width:30vw;"><span id="ic" ><i class="fa fa-mobile" aria-hidden="true" style="font-size:10vh"></i></span><div id="context"> Call or Message me at <b>+91 8978884322</b></div></div></a>
 
+	<a href="#section" id="contacts" title="Click for comment box"><div onmouseover="shaked();" onclick="myModal();" onmouseout="stopShaked();" id="contactsd"style="width:30vw;"><span id="id" ><i class="material-icons" id="md-18">speaker_notes</i></span><div id="context"> Leave <b>comments, suggestions or messages</b> here itself</b></div></div></a>
 </div>
-
-
+<div id="modalcont"></div>
 </body>
 </html>
