@@ -35,12 +35,12 @@ function scrolls(){
 if(y>=725){var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 document.addEventListener("scroll", function(){
 	   var st = window.pageYOffset || document.documentElement.scrollTop;
-	  if(st==Y && i==0) {location.reload(); i=1;return;}
+	  if(st==Y && i==0) {st=0; i=1;return;}
 	   if (st<Y) {
    if (st >= lastScrollTop){
        {
       	setTimeout(function(){window.scrollBy(0,70*y/1000-(.000045*y*st));},.01*1000/y);
-      	if (st<=y+7*(Math.pow(y,6))/Math.pow(1000,6) && st>=y-7*(Math.pow(y,6))/Math.pow(1000,6)) {location.reload(); i=1;return};
+      	if (st<=y+3*(Math.pow(y,6))/Math.pow(1050,6) && st>=y-3*(Math.pow(y,6))/Math.pow(1050,6)) {st=0; i=1;return};
       } 
       
   }else {
@@ -49,7 +49,7 @@ document.addEventListener("scroll", function(){
    }
    lastScrollTop = st;
 }}, false)}
-if(st>9*y/10){location.reload();}
+if(st>9*y/10){st=0;}
 }
 var x=window.innerWidth;
 function removeWheel(){
@@ -89,7 +89,7 @@ function sound(src) {
 }
 
 function hiWheel(){
-	if(y>725 && x>1000){ mySound = new sound("save.wav");
+	if(y>625 && x>1000){ mySound = new sound("save.wav");
 	 document.getElementById("hiwheel").innerHTML="<svg id='hi' style='height:100vh; width:100vw;'><circle id='hic' cx=50% cy=57.5% r=0% fill=#111 stroke-width=3 /></svg>";
 	timeoutLoop(function() {removeWheel(); },
             502,

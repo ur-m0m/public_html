@@ -23,6 +23,7 @@
 	//background-color:#c6ff1a;
 	//background-color :#FAE03C;
 	background:#fbe86a;
+	padding-bottom:2vh;
 	box-shadow: 0 0 2vh black;
 }
 
@@ -82,8 +83,8 @@ body{
 
 @keyframes xcirclea{
 	0%{r:40%;}
-	15% {r:40%;fill:#ffcf0f;}
-	100%{r:40%;fill:#ffcf0f;}
+	15% {r:41%;fill:#ffcf0f;}
+	100%{r:41%;fill:#ffcf0f;}
 }
 
  #c:hover{
@@ -174,7 +175,7 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-@media screen and (max-height: 675px) {
+@media screen and (max-height: 550x) {
     svg {
         	display: inline-block;
 	margin:0;
